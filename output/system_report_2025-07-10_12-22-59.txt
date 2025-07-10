@@ -1,0 +1,215 @@
+Generating System Report...
+
+=== System Information 🖥️ ===
+Linux vm1 5.14.0-503.14.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov 15 12:04:32 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Rocky Linux"
+VERSION="9.5 (Blue Onyx)"
+ID="rocky"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="9.5"
+PLATFORM_ID="platform:el9"
+PRETTY_NAME="Rocky Linux 9.5 (Blue Onyx)"
+ANSI_COLOR="0;32"
+LOGO="fedora-logo-icon"
+CPE_NAME="cpe:/o:rocky:rocky:9::baseos"
+HOME_URL="https://rockylinux.org/"
+VENDOR_NAME="RESF"
+VENDOR_URL="https://resf.org/"
+BUG_REPORT_URL="https://bugs.rockylinux.org/"
+SUPPORT_END="2032-05-31"
+ROCKY_SUPPORT_PRODUCT="Rocky-Linux-9"
+ROCKY_SUPPORT_PRODUCT_VERSION="9.5"
+REDHAT_SUPPORT_PRODUCT="Rocky Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="9.5"
+ Static hostname: vm1
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 9a837d64a71c410d83d268fe3a464e11
+         Boot ID: 35345b4652804c1e8ec139aaac55388d
+  Virtualization: vmware
+Operating System: Rocky Linux 9.5 (Blue Onyx)
+     CPE OS Name: cpe:/o:rocky:rocky:9::baseos
+          Kernel: Linux 5.14.0-503.14.1.el9_5.x86_64
+    Architecture: x86-64
+ Hardware Vendor: VMware, Inc.
+  Hardware Model: VMware Virtual Platform
+Firmware Version: 6.00
+CPU Cores: 2
+Model name:                           Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+BIOS Model name:                      Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
+
+=== Date & Time ⏱️ ===
+Thu Jul 10 12:22:59 PM EEST 2025
+                Time zone: Africa/Cairo (EEST, +0300)
+System clock synchronized: yes
+              NTP service: active
+
+=== Resource Usage 📊 ===
+up 1 hour, 21 minutes
+
+Memory Usage:
+               total        used        free      shared  buff/cache   available
+Mem:           1.7Gi       1.1Gi       125Mi       8.0Mi       703Mi       638Mi
+Swap:          2.0Gi       473Mi       1.5Gi
+
+Disk Usage:
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+tmpfs           871M     0  871M   0% /dev/shm
+tmpfs           349M  7.1M  342M   3% /run
+/dev/nvme0n1p2   10G  9.3G  742M  93% /
+/dev/nvme0n1p1  448M  332M  117M  74% /boot
+/dev/nvme0n1p3  4.0G  164M  3.8G   5% /home
+tmpfs           175M  108K  175M   1% /run/user/1000
+/dev/sr0         11G   11G     0 100% /run/media/shady/Rocky-9-5-x86_64-dvd
+
+Inode Usage:
+Filesystem      Inodes  IUsed   IFree IUse% Mounted on
+devtmpfs        215198    436  214762    1% /dev
+tmpfs           222960      1  222959    1% /dev/shm
+tmpfs           819200    891  818309    1% /run
+/dev/nvme0n1p2 1735992 216811 1519181   13% /
+/dev/nvme0n1p1  239360    358  239002    1% /boot
+/dev/nvme0n1p3 2097152   3229 2093923    1% /home
+tmpfs            44592    125   44467    1% /run/user/1000
+/dev/sr0             0      0       0     - /run/media/shady/Rocky-9-5-x86_64-dvd
+
+Swap Status:
+NAME           TYPE      SIZE USED PRIO
+/dev/nvme0n1p5 partition   2G 473M   -2
+
+=== Top Memory-Consuming Processes 🔥 ===
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+shady       2680  1.9  5.8 3935804 104448 ?      Ssl  11:04   1:33 /usr/bin/gnome-shell
+shady       3308  1.1  2.6 801448 47956 ?        Ssl  11:04   0:56 /usr/libexec/gnome-terminal-server
+shady       2975  0.1  2.5 1048444 46344 ?       Sl   11:04   0:06 /usr/bin/gnome-software --gapplication-service
+root        1563  0.0  1.5 2130744 27772 ?       Ssl  11:02   0:02 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+shady       3191  0.0  1.4 823712 25344 ?        Ssl  11:04   0:00 /usr/libexec/gsd-xsettings
+
+=== Large Files (>100MB) 📁 ===
+-r--------. 1 root root 128T Jul 10 11:47 /proc/kcore
+-rw-r--r--. 1 shady shady 849M Nov 16  2024 /run/media/shady/Rocky-9-5-x86_64-dvd/images/install.img
+-rw-r--r--. 1 root root 478M Jun 30 17:43 /var/cache/PackageKit/9.5/metadata/baseos-9-x86_64/packages/linux-firmware-20250513-151.1.el9_6.noarch.rpm
+-rw-r--r--. 1 shady shady 388M Nov  8  2024 /run/media/shady/Rocky-9-5-x86_64-dvd/BaseOS/Packages/l/linux-firmware-20240905-146.el9.noarch.rpm
+-rw-r--r--. 1 shady shady 325M Nov 13  2024 /run/media/shady/Rocky-9-5-x86_64-dvd/AppStream/Packages/j/java-11-openjdk-jmods-11.0.25.0.9-3.el9.x86_64.rpm
+
+=== Network Information 🌐 ===
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:50:56:23:8f:1f brd ff:ff:ff:ff:ff:ff
+    altname enp3s0
+    inet 192.168.1.16/32 scope global noprefixroute ens160
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:fe23:8f1f/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 2e:e7:5e:ee:0b:a6 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+
+Routing Table:
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 ens160
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.1.1     0.0.0.0         255.255.255.255 UH    100    0        0 ens160
+
+DNS Servers:
+nameserver 8.8.8.8
+
+Ping Test (8.8.8.8):
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=65.5 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=118 time=49.5 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=118 time=45.9 ms
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+rtt min/avg/max/mdev = 45.922/53.640/65.520/8.524 ms
+
+MAC Address:
+    link/ether 00:50:56:23:8f:1f brd ff:ff:ff:ff:ff:ff
+    link/ether 2e:e7:5e:ee:0b:a6 brd ff:ff:ff:ff:ff:ff
+
+=== Security Check 🔐 ===
+
+Last Failed Login Attempts:
+Jul  7 21:51:28 vm1 sshd[37426]: Failed password for root from 192.168.1.24 port 57875 ssh2
+Jul  7 21:51:43 vm1 sshd[37430]: Failed password for invalid user rooooooooooooot from 192.168.1.24 port 57885 ssh2
+Jul  7 21:51:47 vm1 sshd[37430]: Failed password for invalid user rooooooooooooot from 192.168.1.24 port 57885 ssh2
+Jul  7 21:51:49 vm1 sshd[37430]: Failed password for invalid user rooooooooooooot from 192.168.1.24 port 57885 ssh2
+Jul  8 18:00:26 vm1 sshd[29741]: Failed password for root from 192.168.1.24 port 61708 ssh2
+Jul  8 18:00:30 vm1 sshd[29741]: Failed password for root from 192.168.1.24 port 61708 ssh2
+Jul  8 18:00:34 vm1 sshd[29741]: Failed password for root from 192.168.1.24 port 61708 ssh2
+Jul  8 18:00:46 vm1 sshd[29746]: Failed password for invalid user wwwwwwwwwwwwwwww from 192.168.1.24 port 61719 ssh2
+Jul  8 18:00:50 vm1 sshd[29746]: Failed password for invalid user wwwwwwwwwwwwwwww from 192.168.1.24 port 61719 ssh2
+Jul  8 18:00:53 vm1 sshd[29746]: Failed password for invalid user wwwwwwwwwwwwwwww from 192.168.1.24 port 61719 ssh2
+
+Users Without passwords:
+user01 has no password!
+ayman has no password!
+
+Effective sudo users:
+root
+shady
+wheel:x:10:
+Total: 3
+
+Firewall Rules:
+firewalld not running. iptables rules:
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+    0     0 DROP       0    --  !docker0 docker0  0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     0    --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+    0     0 ACCEPT     0    --  docker0 *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       0    --  *      docker0  0.0.0.0/0            0.0.0.0/0           
+
+SELinux Status:
+Enforcing
+
+=== Listening Ports 📡 ===
+
+Listening Ports:
+tcp   127.0.0.1:631  LISTEN             881/cupsd
+tcp   0.0.0.0:22     LISTEN             885/sshd:
+tcp6  ::1:631        LISTEN             881/cupsd
+tcp6  :::8888        LISTEN             883/httpd
+tcp6  :::443         LISTEN             883/httpd
+tcp6  :::3306        LISTEN             978/mariadbd
+tcp6  :::22          LISTEN             885/sshd:
+udp   0.0.0.0:5353   658/avahi-daemon:  r
+udp   0.0.0.0:40215  658/avahi-daemon:  r
+udp   127.0.0.1:323  695/chronyd        
+udp6  :::5353        658/avahi-daemon:  r
+udp6  ::1:323        695/chronyd        
+udp6  :::34769       658/avahi-daemon:  r
+
+=== Critical Services Status 🧪 ===
+sshd: active, Enabled: enabled
+firewalld: active, Enabled: enabled
+iptables: Not Installed
+docker: active, Enabled: enabled
+nginx: Not Installed
+httpd: active, Enabled: enabled
+mysql: active, Enabled: alias
+mariadb: active, Enabled: enabled
+crond: active, Enabled: enabled
+rsyslog: active, Enabled: enabled
+kubelet: Not Installed
+
+=== DevOps Tools Availability 📦 ===
+docker: Available
+kubectl: Not Found
+mc: Not Found
+helm: Not Found
+ansible: Not Found
+terraform: Not Found
+git: Available
+
+✅ Report saved to: ./output/system_report_2025-07-10_12-22-59.txt

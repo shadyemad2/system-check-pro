@@ -194,16 +194,6 @@ listening_ports() {
   fi
 }
 
-# ----------[ Permission Check ]----------
-permission_check() {
-  print_header "Sensitive File Permissions 🔒"
-  ls -l /etc/passwd /etc/shadow /etc/sudoers 2>/dev/null | tee -a "$REPORT_FILE"
-
-  echo -e "\n${YELLOW}Suspicious Executables (chmod 777):${NC}"
-  echo -e "\nSuspicious Executables (chmod 777):" >> "$REPORT_FILE"
-  find / -type f -perm 0777 2>/dev/null | head -n 5 | tee -a "$REPORT_FILE"
-}
-
 # ----------[ DevOps Tools Check ]----------
 devops_tools() {
   print_header "DevOps Tools Availability 📦"
@@ -221,6 +211,33 @@ devops_tools() {
   done
 }
 
+# ----------[ Critical Services Check ]--------
+
+# ----------[ Critical Services Check ]----------
+
+check_services() {
+  print_header "Critical Services Status 🧪"
+
+  local services=("sshd" "firewalld" "iptables" "docker" "nginx" "httpd" "mysql" "mariadb" "crond" "rsyslog" "kubelet")
+
+  for service in "${services[@]}"; do
+    if systemctl list-unit-files | grep -q "^$service"; then
+      status=$(systemctl is-active "$service" 2>/dev/null)
+      enabled_raw=$(systemctl is-enabled "$service" 2>/dev/null)
+
+      [[ "$status" == "active" ]] && status_colored="${GREEN}Running${NC}" || status_colored="${RED}Not Running${NC}"
+      [[ "$enabled_raw" == "enabled" ]] && enabled_colored="${GREEN}Enabled${NC}" || enabled_colored="${RED}Not Enabled${NC}"
+
+      echo -e "$service: $status_colored, $enabled_colored"
+      echo "$service: $status, Enabled: $enabled_raw" >> "$REPORT_FILE"
+    else
+      echo -e "$service: ${YELLOW}Not Installed${NC}"
+      echo "$service: Not Installed" >> "$REPORT_FILE"
+    fi
+  done
+}
+
+    
 # ----------[ Cleanup Old Reports ]----------
 cleanup_old_reports() {
   cd "$OUTPUT_DIR" || return
@@ -240,7 +257,7 @@ main() {
   network_info
   security_check
   listening_ports
-  permission_check
+  check_services
   devops_tools
   echo -e "\n${GREEN}✅ Report saved to: $REPORT_FILE${NC}"
   echo -e "\n✅ Report saved to: $REPORT_FILE" >> "$REPORT_FILE"
