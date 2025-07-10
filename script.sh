@@ -30,13 +30,13 @@ fi
 
 # ----------[ Helpers ]----------
 print_header() {
-  echo -e "\n${CYAN}=== $1 ===${NC}"
-  echo -e "\n=== $1 ===" >> "$REPORT_FILE"
+  echo -e "\n${CYAN}======= $1 =======${NC}"
+  echo -e "\n======= $1 =======" >> "$REPORT_FILE"
 }
 
 # ----------[ System Info ]----------
 system_info(){
-  print_header "System Information 🖥️"
+  print_header "System Information"
   uname -a | tee -a "$REPORT_FILE"
   [[ -f /etc/os-release ]] && cat /etc/os-release | tee -a "$REPORT_FILE" || echo "/etc/os-release not found, skipping.." | tee -a "$REPORT_FILE"
   hostnamectl 2>/dev/null | tee -a "$REPORT_FILE" || echo "Hostname: $(hostname)" | tee -a "$REPORT_FILE"
@@ -46,7 +46,7 @@ system_info(){
 
 # ----------[ Date & Time Info ]----------
 time_info(){
-  print_header "Date & Time ⏱️"
+  print_header "Date & Time"
   date | tee -a "$REPORT_FILE"
   if command -v timedatectl &>/dev/null; then
     timedatectl | grep -E 'Time zone|NTP|System clock' | tee -a "$REPORT_FILE"
@@ -57,7 +57,7 @@ time_info(){
 
 # ----------[ Resource Usage ]----------
 resource_usage(){
-  print_header "Resource Usage 📊"
+  print_header "Resource Usage"
   uptime -p | tee -a "$REPORT_FILE"
 
   echo -e "\n${YELLOW}Memory Usage:${NC}"
@@ -79,20 +79,20 @@ resource_usage(){
 
 # ----------[ Top Processes ]----------
 top_processes(){
-  print_header "Top Memory-Consuming Processes 🔥"
+  print_header "Top Memory-Consuming Processes"
   ps aux --sort=-%mem | head -n 6 | tee -a "$REPORT_FILE"
 }
 
 # ----------[ Large Files ]----------
 large_files(){
-  print_header "Large Files (>100MB) 📁"
+  print_header "Large Files (>100MB)"
   results=$(find / -type f -size +100M -exec ls -lh {} \; 2>/dev/null | sort -k 5 -hr | head -n 5)
   [[ -z "$results" ]] && echo "No large files found (over 100MB)" | tee -a "$REPORT_FILE" || echo "$results" | tee -a "$REPORT_FILE"
 }
 
 # ----------[ Network Info ]----------
 network_info(){
-  print_header "Network Information 🌐"
+  print_header "Network Information"
   (ip address 2>/dev/null || ifconfig 2>/dev/null) | tee -a "$REPORT_FILE"
 
   echo -e "\nRouting Table:" 
@@ -114,7 +114,7 @@ network_info(){
 
 # ----------[ Security Check ]----------
 security_check() {
-  print_header "Security Check 🔐"
+  print_header "Security Check"
 
   echo -e "\n${YELLOW}Last Failed Login Attempts:${NC}"
   echo -e "\nLast Failed Login Attempts:" >> "$REPORT_FILE"
@@ -182,7 +182,7 @@ security_check() {
 
 # ----------[ Listening Ports ]----------
 listening_ports() {
-  print_header "Listening Ports 📡"
+  print_header "Listening Ports"
   echo -e "${YELLOW}\nProto  Address:Port        State      PID/Program${NC}"
   echo -e "\nListening Ports:" >> "$REPORT_FILE"
   if command -v netstat &>/dev/null; then
@@ -196,7 +196,7 @@ listening_ports() {
 
 # ----------[ DevOps Tools Check ]----------
 devops_tools() {
-  print_header "DevOps Tools Availability 📦"
+  print_header "DevOps Tools Availability"
   local tools=("docker" "kubectl" "mc" "helm" "ansible" "terraform" "git")
   for tool in "${tools[@]}"; do
     printf "%-10s: " "$tool"
@@ -216,7 +216,7 @@ devops_tools() {
 # ----------[ Critical Services Check ]----------
 
 check_services() {
-  print_header "Critical Services Status 🧪"
+  print_header "Critical Services Status"
 
   local services=("sshd" "firewalld" "iptables" "docker" "nginx" "httpd" "mysql" "mariadb" "crond" "rsyslog" "kubelet")
 
